@@ -259,10 +259,24 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="430-qy-bgV">
+                                <rect key="frame" x="210" y="531" width="181" height="51"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="51" id="ASm-bW-OQ7"/>
+                                    <constraint firstAttribute="width" constant="181" id="Ecv-Dp-628"/>
+                                    <constraint firstAttribute="width" secondItem="430-qy-bgV" secondAttribute="height" multiplier="181:51" id="hQc-6h-2DD"/>
+                                </constraints>
+                                <state key="normal" title="Button" image="clear"/>
+                                <connections>
+                                    <action selector="onClearPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="P5h-fo-Ap9"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="rHv-UT-guz" firstAttribute="trailing" secondItem="Iex-KN-LK8" secondAttribute="trailing" constant="130" id="35z-Z5-nEA"/>
+                            <constraint firstItem="430-qy-bgV" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="4fI-Fv-03e"/>
+                            <constraint firstItem="430-qy-bgV" firstAttribute="top" secondItem="rHv-UT-guz" secondAttribute="bottom" constant="8" id="52Q-CP-F6S"/>
                             <constraint firstItem="rHv-UT-guz" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="Ary-r3-FY0"/>
                             <constraint firstItem="Iex-KN-LK8" firstAttribute="top" secondItem="rHv-UT-guz" secondAttribute="top" constant="15" id="DtZ-7k-rIV"/>
                             <constraint firstAttribute="trailing" secondItem="V8M-kL-C6F" secondAttribute="trailing" id="Laa-J5-RW2"/>
@@ -299,6 +313,7 @@
         <image name="9" width="111" height="114"/>
         <image name="add" width="111" height="114"/>
         <image name="backpanel" width="620" height="938"/>
+        <image name="clear" width="333" height="114"/>
         <image name="counter" width="516" height="133"/>
         <image name="divide" width="111" height="114"/>
         <image name="equal" width="111" height="114"/>
