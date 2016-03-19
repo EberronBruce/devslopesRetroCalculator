@@ -268,7 +268,7 @@
                                 </constraints>
                                 <state key="normal" title="Button" image="clear"/>
                                 <connections>
-                                    <action selector="onClearPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="P5h-fo-Ap9"/>
+                                    <action selector="onClearPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="vpy-Tw-jdX"/>
                                 </connections>
                             </button>
                         </subviews>
