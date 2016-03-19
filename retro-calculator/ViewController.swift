@@ -43,31 +43,52 @@ class ViewController: UIViewController {
             print(err.debugDescription)
         }
         
-        
-        
+        outputLbl.text = ""
+
     }
     
     @IBAction func numberPressed(btn: UIButton) {
-        btnSound.play()
+        playSound()
+        
+        runningNumber += "\(btn.tag)"
+        outputLbl.text = runningNumber
     }
 
     @IBAction func onDividedPressed(sender: AnyObject) {
-        print("divide")
+        processOperation(Operation.Divide)
     }
 
     @IBAction func onMultiplyPressed(sender: AnyObject) {
-        print("multipy")
+        processOperation(Operation.Multiply)
     }
     @IBAction func onSubtractPressed(sender: AnyObject) {
-        print("subtract")
+        processOperation(Operation.Substract)
     }
     
     @IBAction func onAddPressed(sender: AnyObject) {
-        print("add")
+        processOperation(Operation.Add)
     }
     
     @IBAction func onEqualsPressed(sender: AnyObject) {
-        print("equals")
+        processOperation(Operation.Equals)
+    }
+    
+    func processOperation(op: Operation) {
+        playSound()
+        
+        if currentOperation != Operation.Empty {
+            //run some math
+        } else {
+            //This is the first time an operatior has been pressed
+        }
+    }
+    
+    func playSound(){
+        if btnSound.playing {
+            btnSound.stop()
+        }
+        
+        btnSound.play()
     }
 }
 
