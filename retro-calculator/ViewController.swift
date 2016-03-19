@@ -16,7 +16,6 @@ class ViewController: UIViewController {
         case Multiply = "*"
         case Substract = "-"
         case Add = "+"
-        case Equals = "="
         case Empty = "Empty"
     }
     
@@ -28,6 +27,7 @@ class ViewController: UIViewController {
     var leftValStr = ""
     var rightValStr = ""
     var currentOperation: Operation = Operation.Empty
+    var result = ""
     
 
     override func viewDidLoad() {
@@ -43,7 +43,7 @@ class ViewController: UIViewController {
             print(err.debugDescription)
         }
         
-        outputLbl.text = ""
+        outputLbl.text = "0"
 
     }
     
@@ -70,7 +70,7 @@ class ViewController: UIViewController {
     }
     
     @IBAction func onEqualsPressed(sender: AnyObject) {
-        processOperation(Operation.Equals)
+        processOperation(currentOperation)
     }
     
     func processOperation(op: Operation) {
@@ -78,8 +78,43 @@ class ViewController: UIViewController {
         
         if currentOperation != Operation.Empty {
             //run some math
+            
+            //A user selected an operator, but then selected another opertor without first enter a number
+            if runningNumber != "" {
+                rightValStr = runningNumber
+                runningNumber = ""
+                
+                switch currentOperation {
+                case Operation.Multiply:
+                    result = "\(Double(leftValStr)! * Double(rightValStr)!)"
+                    break
+                case Operation.Add:
+                    result = "\(Double(leftValStr)! + Double(rightValStr)!)"
+                    break
+                case Operation.Substract:
+                    result = "\(Double(leftValStr)! - Double(rightValStr)!)"
+                    break
+                case Operation.Divide:
+                    result = "\(Double(leftValStr)! / Double(rightValStr)!)"
+                    break
+                default:
+                    break
+                }
+                
+                leftValStr = result
+                outputLbl.text = result
+                
+            }
+            
+
+            
+            currentOperation = op
+            
         } else {
             //This is the first time an operatior has been pressed
+            leftValStr = runningNumber
+            runningNumber = ""
+            currentOperation = op
         }
     }
     
