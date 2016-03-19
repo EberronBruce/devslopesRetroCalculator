@@ -29,8 +29,8 @@
                                     <constraint firstAttribute="width" secondItem="V8M-kL-C6F" secondAttribute="height" multiplier="1:1" id="WHH-mH-aZQ"/>
                                 </constraints>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="ground" highlightedImage="ground" translatesAutoresizingMaskIntoConstraints="NO" id="N5X-bi-VGR">
-                                <rect key="frame" x="0.0" y="531" width="888" height="69"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ground" highlightedImage="ground" translatesAutoresizingMaskIntoConstraints="NO" id="N5X-bi-VGR">
+                                <rect key="frame" x="0.0" y="530" width="600" height="70"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="70" id="ZJy-Gw-U80"/>
                                 </constraints>
@@ -204,8 +204,12 @@
                                     </stackView>
                                 </subviews>
                             </stackView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="4556" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Iex-KN-LK8">
-                                <rect key="frame" x="188" y="90" width="221" height="41"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="4556" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Iex-KN-LK8">
+                                <rect key="frame" x="193" y="92" width="221" height="41"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="221" id="ZMc-xu-IUk"/>
+                                    <constraint firstAttribute="height" constant="41" id="wb8-5K-0zX"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" name="Minecraft" family="Minecraft" pointSize="30"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -213,7 +217,9 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="rHv-UT-guz" firstAttribute="trailing" secondItem="Iex-KN-LK8" secondAttribute="trailing" constant="130" id="35z-Z5-nEA"/>
                             <constraint firstItem="rHv-UT-guz" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="Ary-r3-FY0"/>
+                            <constraint firstItem="Iex-KN-LK8" firstAttribute="top" secondItem="rHv-UT-guz" secondAttribute="top" constant="15" id="DtZ-7k-rIV"/>
                             <constraint firstAttribute="trailing" secondItem="V8M-kL-C6F" secondAttribute="trailing" id="Laa-J5-RW2"/>
                             <constraint firstItem="rHv-UT-guz" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="OJB-VL-HOa"/>
                             <constraint firstItem="V8M-kL-C6F" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="QNI-RO-dVZ"/>
