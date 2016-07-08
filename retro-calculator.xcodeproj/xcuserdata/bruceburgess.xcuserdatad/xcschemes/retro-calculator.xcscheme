@@ -28,6 +28,26 @@
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "7A39A9001D2C77F1001352CF"
+               BuildableName = "retro-calculatorTests.xctest"
+               BlueprintName = "retro-calculatorTests"
+               ReferencedContainer = "container:retro-calculator.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "7AA3D4F91D304F3500DFEC45"
+               BuildableName = "retro-calculatorUITests.xctest"
+               BlueprintName = "retro-calculatorUITests"
+               ReferencedContainer = "container:retro-calculator.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference

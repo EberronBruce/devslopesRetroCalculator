@@ -11,37 +11,23 @@ import AVFoundation
 
 class ViewController: UIViewController {
     
-    enum Operation: String{
-        case Divide = "/"
-        case Multiply = "*"
-        case Substract = "-"
-        case Add = "+"
-        case Empty = "Empty"
-    }
     
     @IBOutlet weak var outputLbl: UILabel!
     
-    var btnSound: AVAudioPlayer!
     
     var runningNumber = ""
     var leftValStr = ""
     var rightValStr = ""
-    var currentOperation: Operation = Operation.Empty
+    var currentOperation = CalcService.Operation.Empty
     var result = ""
     
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let path = NSBundle.mainBundle().pathForResource("btn", ofType: "wav")
-        let soundURL = NSURL(fileURLWithPath: path!)
-        
-        do {
-            try btnSound = AVAudioPlayer(contentsOfURL: soundURL)
-            btnSound.prepareToPlay()
-        } catch  let err as NSError {
-            print(err.debugDescription)
-        }
+        AudioService.instance.soundFXPlayer = AudioService.instance.createPlayerWithUrl(AudioService.instance.btnUrl!)
+        AudioService.instance.soundFXPlayer?.prepareToPlay()
+    
         
         outputLbl.text = "0"
 
@@ -55,18 +41,18 @@ class ViewController: UIViewController {
     }
 
     @IBAction func onDividedPressed(sender: AnyObject) {
-        processOperation(Operation.Divide)
+        processOperation(CalcService.Operation.Divide)
     }
 
     @IBAction func onMultiplyPressed(sender: AnyObject) {
-        processOperation(Operation.Multiply)
+        processOperation(CalcService.Operation.Multiply)
     }
     @IBAction func onSubtractPressed(sender: AnyObject) {
-        processOperation(Operation.Substract)
+        processOperation(CalcService.Operation.Substract)
     }
     
     @IBAction func onAddPressed(sender: AnyObject) {
-        processOperation(Operation.Add)
+        processOperation(CalcService.Operation.Add)
     }
     
     @IBAction func onEqualsPressed(sender: AnyObject) {
@@ -79,7 +65,7 @@ class ViewController: UIViewController {
         runningNumber = ""
         rightValStr = ""
         leftValStr = ""
-        currentOperation = Operation.Empty
+        currentOperation = CalcService.Operation.Empty
         result = ""
         
         outputLbl.text = "0"
@@ -87,10 +73,10 @@ class ViewController: UIViewController {
     }
     
     
-    func processOperation(op: Operation) {
+    func processOperation(op: CalcService.Operation) {
         playSound()
         
-        if currentOperation != Operation.Empty {
+        if currentOperation != CalcService.Operation.Empty {
             //run some math
             
             //A user selected an operator, but then selected another opertor without first enter a number
@@ -99,17 +85,17 @@ class ViewController: UIViewController {
                 runningNumber = ""
                 
                 switch currentOperation {
-                case Operation.Multiply:
-                    result = "\(Double(leftValStr)! * Double(rightValStr)!)"
+                case CalcService.Operation.Multiply:
+                    result = CalcService.instance.multiply(leftValStr, numStrB: rightValStr)!
                     break
-                case Operation.Add:
-                    result = "\(Double(leftValStr)! + Double(rightValStr)!)"
+                case CalcService.Operation.Add:
+                    result = CalcService.instance.add(leftValStr, numStrB: rightValStr)!
                     break
-                case Operation.Substract:
-                    result = "\(Double(leftValStr)! - Double(rightValStr)!)"
+                case CalcService.Operation.Substract:
+                    result = CalcService.instance.subtract(leftValStr, numStrB: rightValStr)!
                     break
-                case Operation.Divide:
-                    result = "\(Double(leftValStr)! / Double(rightValStr)!)"
+                case CalcService.Operation.Divide:
+                    result = CalcService.instance.divide(leftValStr, numStrB: rightValStr)!
                     break
                 default:
                     break
@@ -133,11 +119,7 @@ class ViewController: UIViewController {
     }
     
     func playSound(){
-        if btnSound.playing {
-            btnSound.stop()
-        }
-        
-        btnSound.play()
+        AudioService.instance.playCurrentSoundFX()
     }
 }
 
